@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV/Resume</title>
+</head>
+<body>
+    <nav>
+        <a href="/index.html">Home</a>
+        <a href="index.html">Resume</a>
+        <a href="/contacts/index.html">Contacts</a>
+        <a href="/projects/index.html">Portfolio</a>
+        <a href="https://github.com/KevinHuang8706">Github</a>
+    </nav>
+    <header>
+        <h2>Tianyang (Kevin) Huang</h2>
+        <p>kevinhtv03@gmail.com | (954) 235-0782 | UC San Diego</p>
+    </header>
+
+    <section id="research-objective">
+        <h2>Research Objective</h2>
+        <p>As a double student in Data Science and Mathematics-Computer Science, I am interested in advanced algorithms in LLM and Computer Vision, and their application.</p>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <h3>University of California, San Diego</h3>
+        <p>Bachelor of Science in Data Science | Bachelor of Science in Mathematics-Computer Science</p>
+        <p>GPA: 3.98/4.0 | Major GPA: 4.0/4.0 | Expected Graduation: June 2027</p>
+        
+        <h4>Relevant Coursework (Detailed):</h4>
+        <ul>
+            <li>Advanced Mathematics: Abstract Algebra, Enumerative Combinatorics, Probability Theory</li>
+            <li>Data Science & Machine Learning: Probabilistic Modeling & ML Theories, Data Mining, Practice of Data Science, Data Management</li>
+            <li>Computer Science Basics: Data Structures & Algorithms, System Programming & Software Tools</li>
+        </ul>
+        
+        <p>Honors: Provost's Honors (All Quarters), IEEE Eta Kappa Nu (HKN) Honor Society Officer</p>
+    </section>
+
+    <section id="experience">
+        <h2>Internship & Research Experience</h2>
+
+        <article class="job">
+            <h3>LSDO Lab | Research Assistant</h3>
+            <p>Apr 2025 – Present</p>
+            
+            <h4>Project: LLM code generation for CSDL and JAX</h4>
+            <ul>
+                <li>Idea: Use fine-tuned LLM to generate code in CSDL and JAX to solve large scale system design questions.</li>
+            
+        </article>
+        
+        <article class="job">
+            <h3>iFlytek | Machine Learning Internship</h3>
+            <p>Jun 2024 – Aug 2024</p>
+            
+            <h4>Project 1: Feature Extraction of Customer Service Chat History</h4>
+            <ul>
+                <li>Idea: Use fine-tuned LLM API to extract key features of customers into a labeled json file.</li>
+                <li>Problem: Low accuracy (64%) in intent classification due to noisy labels and insufficient data.</li>
+                <li>Solution: Reinforce data by deleting repetitive advertising and combine results from multiple LLM that focused on different task</li>
+                <li>Result: Improved accuracy to 90%</li>
+            </ul>
+            
+            <h4>Project 2: Automated Taobao E-Store Chat Data Parsing</h4>
+            <ul>
+                <li>Built a Python scraper to transfer unstructured web logs of chat history into labeled JSON datasets.</li>
+                <li>Integrated timestamps data from response log using Regex and AST.</li>
+            </ul>
+        </article>
+        
+        <article class="job">
+            <h3>University of Florida | Research Assistant</h3>
+            <p>Jun 2022 – Jul 2022</p>
+            <p>Advisor: Dr. Dominique Laroche</p>
+            
+            <h4>Project: Low-Temperature Microchip Circuit Design for 1D Coulomb Drag Measurements</h4>
+            <ul>
+                <li>Designed and drew circuit connections using MPLab based on SEM imaging data, constructed a breakout box for measurements.</li>
+                <li>Operated a dilution refrigerator to achieve temperatures of ~10 mK, enabling precise quantum measurements.</li>
+                <li>Data Pipeline Development: Built a simple program transferring Nitrogen Fridge readings to Lab's database</li>
+                <li>Outcome: Contributed to a published paper on electron transport in 1D nanostructures.</li>
+            </ul>
+        </article>
+    </section>
+
+    <section id="projects">
+        <h2>Coursework & Project Highlights</h2>
+        
+        <article class="project">
+            <h3>Recip Reading Prediction Group Project ~DSC80</h3>
+            <p>Objective: Predict rating of a recipe based on data on a culinary website</p>
+            <h4>Methodology:</h4>
+            <ul>
+                <li>Conducted univariate/bivariate analysis using creative data visualization with plotly express.</li>
+                <li>Conduct Hypothesis Testing and Permutation Testing to investigate the missingness mechanism and relationship between the data.</li>
+                <li>Engineered a custom transformer pipeline (Scikit-Learn) to handle categorical, numerical, and timestamp data.</li>
+                <li>Create a RandomForsetClassifier model and conduct grid search and fairness analysis.</li>
+            </ul>
+            <p>Result: a classifier with 75% accuracy.</p>
+        </article>
+        
+        <article class="project">
+            <h3>System Programming Projects</h3>
+            <p>Sep 2024 - Dec 2024</p>
+            <p>UCSD CSE29 System Programming & Software Tools</p>
+            <ul>
+                <li>Create a password cracker by trying variations of guesses and test out if any SHA256 hashes match the target.</li>
+                <li>Build an online chat room server that can record emoji, reactions, and record user id, and support posting and reacting operations.</li>
+                <li>Implement malloc() and free() from scratch using a combination of structs to represent start and end of memory blocks to facilitate pointer arithmetic.</li>
+                <li>Built a terminal prototype that parsed command line arguments such as ls, pwd, history, and exit.</li>
+            </ul>
+        </article>
+        
+        <article class="project">
+            <h3>Data Structure & Algorithm Projects</h3>
+            <p>Mar 2024 - Jun 2024</p>
+            <p>UCSD DSC80 Practice of Data Science</p>
+            <ul>
+                <li>Protein synthesis program built by queue implemented with circular array.</li>
+                <li>Java implementation of binary search tree, b-trees, d-heaps, hash table, and BFS, DFS, each with data structure used to build a simple application.</li>
+            </ul>
+        </article>
+        
+        <article class="project">
+            <h3>Spam Email Classification Project</h3>
+            <p>2023</p>
+            <p>Objective: Determine if an email is spam</p>
+            <h4>Technical Approach:</h4>
+            <ul>
+                <li>Lemmatize data by removing stop words and punctuation using NLTK.</li>
+                <li>Use Tfid and CountVectorizer to vectorize the subject and body of each email.</li>
+                <li>Use RandomForestClassifier to model the transformed data.</li>
+                <li>Use 10-fold cross validation to improve accuracy.</li>
+            </ul>
+            <p>Result: Test accuracy of 97%.</p>
+        </article>
+        
+        <article class="project">
+            <h3>OpenCV Track Curvature Detection</h3>
+            <p>2023</p>
+            <p>Objective: Detect rail curvature in real-time tunnel videos and indicate with color.</p>
+            <h4>Technical Approach:</h4>
+            <ul>
+                <li>Split video into frames and applied Canny edge detection to isolate tracks.</li>
+                <li>Calculated curvature using polynomial regression on edge coordinates.</li>
+                <li>Use a red to green scheme to represent curvature and write the result on the output video.</li>
+            </ul>
+        </article>
+        
+        <article class="project">
+            <h3>Tensorflow Number Recognition Project</h3>
+            <p>2023</p>
+            <p>Objective: Develop a neural network model to detect digits written on image.</p>
+            <h4>Technical Approach:</h4>
+            <ul>
+                <li>Use OpenCV to convert the image to grayscale and reshape image size.</li>
+                <li>Use a five layer sequential neural network to model the data</li>
+            </ul>
+            <p>Result: 97% testing accuracy</p>
+        </article>
+    </section>
+
+    <section id="leadership">
+        <h2>Leadership & Academic Involvement</h2>
+        <h3>IEEE Eta Kappa Nu (HKN) | Sponsorship Chair</h3>
+        <p>2024 – Present</p>
+        <ul>
+            <li>Secured $5,000+ in sponsorships from companies such as Qualcomm for the club's hackathon, which is the largest hardware hackathon in San Diego.</li>
+            <li>Worked to contact previous graduates, faculty, and industrial connections to attend our Honors Networking Event and career fair.</li>
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <ul>
+            <li>Programming Languages: Python (Advanced), Java (Advanced), C(Intermediate), SQL (Intermediate), HTML(Intermediate)</li>
+            <li>Machine Learning & Libraries:
+                <ul>
+                    <li>Frameworks: TensorFlow, Keras, Scikit-Learn, PyTorch</li>
+                    <li>NLP & CV: OpenCV, NLTK</li>
+                    <li>Data Analysis: Pandas, NumPy, Matplotlib, Seaborn, Plotly</li>
+                </ul>
+            </li>
+            <li>Tools & Platforms: Git, Jupyter, LaTeX, MATLAB, Shell Script</li>
+            <li>Research Methodologies: Hypothesis Testing, Permutation Analysis, Feature Engineering, Cross-Validation, Grid Search, Pipeline and Transformer Building</li>
+        </ul>
+    </section>
+
+    <section id="research-interests">
+        <h2>Research Interests</h2>
+        <ol>
+            <li>Machine Learning Theories: Contribute to model and theory developments in topics like Optimization and Probabilistic modeling and come up with code to test results</li>
+            <li>ML for Science: Apply knowledge to a science domain and analyze and develop models on lab data, such as aerodynamic modeling, bio imaging.</li>
+            <li>ML/AI Applications: Research on new perspectives to apply Deep Learning or Reinforcement Learning such as 3D simulation and robotics</li>
+        </ol>
+    </section>
+</body>
+</html>
