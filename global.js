@@ -7,14 +7,14 @@ function $$(selector, context = document) {
 let pages = [
     {url: '', title: 'Home'},
     {url: 'resume/', title: 'Resume'},
-    {url: 'projects', title: 'Projects'},
+    {url: 'projects/', title: 'Projects'},
     {url: 'contacts/', title: 'Contacts'},
     {url: 'https://github.com/KevinHuang8706', title: 'Github'},
 ];
 
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
   ? "/"                  // Local server
-  : "/website/"; 
+  : "/"; 
 
 let nav = document.createElement('nav');
 document.body.prepend(nav);
