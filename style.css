@@ -1,7 +1,13 @@
+/* Enable automatic dark mode */
+html {
+  color-scheme: light dark;
+}
+
 body {
-    max-width: 100ch;
-    margin-inline: max(1em, (100% - 100ch) / 2);
-    font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin-inline: max(1em, (100% - 100ch) / 2);
+  font: 100%/1.5 system-ui;
+  background: #f8fafb;
 }
 
 h1 {
@@ -11,7 +17,9 @@ h1 {
 nav {
   display: flex;
   margin-bottom: 1.5em;
-  border-bottom: 1px solid oklch(80% 3% 200);
+  /*border-bottom: 1px solid oklch(80% 3% 200);*/
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
@@ -23,12 +31,13 @@ nav a {
 }
 
 nav a.current {
-  border-bottom: 0.4em solid oklch(80% 3% 200);
-  padding-bottom: 0.1em; 
+  /* Update to use the border color variable */
+  border-bottom: 0.4em solid var(--border-color);
+  padding-bottom: 0.1em;
 }
 
 nav a:hover {
-  background-color: oklch(92% 3% 245); /* Very light gray background */
+  background-color: color-mix(in oklch, var(--color-accent, oklch(70% 10% 250)), canvas 85%);
   border-bottom: 0.4em solid oklch(54% 19% 250); /* Vibrant blue accent */
   color: oklch(40% 0% 0); /* Darker text on hover */
   transition: all 0.2s ease-in-out;
@@ -62,21 +71,20 @@ textarea {
   min-height: 50px;
 }
 
-.projects{
+.projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   align-items: center;
   gap: 1em;
 }
 
-article{
+article {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
-
 }
 
-h2{
+h2 {
   margin: 0;
 }
 
@@ -88,10 +96,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .container {
   padding: 20px;
-}
-
-body {
-  background: #f8fafb;
 }
 
 header {
@@ -113,6 +117,7 @@ header p {
   color: #7f8c8d;
   font-size: 1.1rem;
 }
+
 
 section {
   margin: 2rem 0;
@@ -161,6 +166,7 @@ article.job p:first-of-type {
   margin-bottom: 1rem;
 }
 
+
 /* Project Cards */
 article.project {
   padding: 1.5rem;
@@ -189,6 +195,7 @@ article.project:hover {
   font-size: 0.95rem;
   list-style: none;
 }
+
 
 /* Education Highlight */
 #education h3 {
@@ -220,36 +227,97 @@ li::before {
   margin-left: -1em;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  section {
-      padding: 1.5rem;
-  }
-  
-  header {
-      padding: 1.5rem;
-  }
-  
-  #skills ul {
-      grid-template-columns: 1fr;
-  }
-}
 
 /* Print Optimization */
 @media print {
   section {
-      box-shadow: none;
-      background: none;
-      padding: 0 !important;
+    box-shadow: none;
+    background: none;
+    padding: 0 !important;
   }
   
   article.job {
-      border-left: 2px solid #ccc;
-      background: none;
+    border-left: 2px solid #ccc;
+    background: none;
   }
   
   header {
-      background: none;
+    background: none;
   }
 }
 
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 100;
+}
+
+/* Dark mode styles using .dark class */
+html.dark body {
+  background: #1a1e22;
+  color: #f8fafb;
+}
+
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: #f8fafb;
+}
+
+html.dark nav a:hover {
+  color: oklch(95% 0% 0);
+}
+
+html.dark header {
+  background: #2c3e50;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+html.dark header h2 {
+  color: #ecf0f1;
+}
+
+html.dark header p {
+  color: #bdc3c7;
+}
+
+html.dark section {
+  background: #2c3e50;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+html.dark article.job {
+  background: #34495e;
+}
+
+html.dark article.job::before {
+  background: #2c3e50;
+}
+
+html.dark article.job h3 {
+  color: #ecf0f1;
+}
+
+html.dark article.job p:first-of-type {
+  color: #bdc3c7;
+}
+
+html.dark article.project {
+  border-color: #34495e;
+}
+
+html.dark #skills li {
+  background: #34495e;
+}
+
+html.dark .color-scheme {
+  background: rgba(44, 62, 80, 0.8);
+}
