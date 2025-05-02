@@ -1,61 +1,73 @@
 [
     {
         "title": "DSC 106 Project 1",
+        "year": "2025",
         "image": "../img/dsc106_project1.png",
         "description": "This visualization comes from aggregating a dataset containing food products in Target, WholeFoods, and Walmart by filtering out on baby food. It demonstrates that WholeFoods is the best place to buy baby food."
     },
     {
         "title": "Animi excepturi quidem temporibus?",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Animi similique eos vitae, ipsa sed magnam inventore fugiat voluptatem? Tempora sunt, illo saepe distinctio id, dolore dignissimos voluptatem corporis maxime eligendi rem, inventore dolorem accusamus voluptatum voluptatibus ea velit."
     },
     {
         "title": "Pariatur nostrum minus eligendi?",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Impedit iure odio, quam, illum, dolorem alias aut voluptatum a suscipit cum ut atque sint eius dicta hic modi? Adipisci maxime commodi iste necessitatibus amet nisi perferendis quos dolor doloribus."
     },
     {
         "title": "Saepe eius veniam ab.",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Laudantium nihil unde repellendus optio eligendi repellat, aspernatur porro distinctio veritatis possimus tempora ipsum facilis id, nisi laboriosam. Dignissimos illum corporis dolorum quaerat dolor iste ipsa, rem ipsum officiis quae!"
     },
     {
         "title": "Incidunt tempore laboriosam eum.",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Reprehenderit rerum provident earum alias possimus suscipit tenetur necessitatibus quod neque, debitis quam ab temporibus quisquam quasi? Natus, officiis non id repellat corporis recusandae doloremque vitae voluptatum placeat modi aut."
     },
     {
         "title": "Laboriosam impedit quibusdam fuga.",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Tenetur sapiente natus accusantium distinctio ullam, iusto dolorem! A quidem expedita sed deserunt quaerat eos, praesentium voluptatum. Nesciunt, ratione, magnam molestias facere dicta qui accusantium hic in voluptates recusandae quidem!"
     },
     {
         "title": "Earum repellendus nihil non.",
+        "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Quam voluptatum, corrupti rerum nobis dolorem voluptatibus repudiandae saepe magni cupiditate laudantium deleniti praesentium quas? Excepturi, culpa tempora. Fugiat illo accusamus quibusdam aliquid dolore quos asperiores repellendus ex in officiis?"
     },
     {
         "title": "Iusto provident repudiandae impedit.",
+        "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Voluptatum quidem delectus ad libero culpa id, excepturi qui, illo laudantium odit iste esse necessitatibus assumenda impedit. Eum, reprehenderit est. Esse eaque optio dolorum id amet tempora nihil culpa itaque."
     },
     {
         "title": "Saepe, repudiandae molestiae. Dolores!",
+        "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Vero velit assumenda, incidunt deleniti nihil, nostrum voluptate, libero ipsa qui culpa quaerat id iste suscipit illum esse praesentium impedit laudantium at deserunt eum ab? Voluptas culpa aperiam asperiores eveniet."
     },
     {
         "title": "Laudantium quae corrupti quo!",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "At similique quaerat asperiores magni possimus minus explicabo iusto dicta natus consequatur autem, mollitia eos a. Numquam quos veniam tenetur vero, adipisci voluptates natus enim cum laboriosam non sit sequi!"
     },
     {
         "title": "Dolore ipsa quas cupiditate?",
+        "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Repellendus, beatae? Ratione ea eum illo necessitatibus soluta laborum explicabo et consectetur fuga vel optio adipisci cum maiores recusandae cumque mollitia voluptate molestias, dolorem dolor? Ipsa harum nesciunt earum suscipit."
     },
     {
         "title": "Quam aperiam labore eius!",
+        "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Velit inventore rerum quia perspiciatis, dolore ducimus eveniet accusamus maiores mollitia quo totam tenetur iste dignissimos accusantium odio qui doloribus adipisci labore, sapiente cupiditate facere architecto similique sunt. Similique, doloremque."
     }

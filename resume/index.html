@@ -7,6 +7,54 @@
     <script type="module" src="../global.js"></script>
     <title>CV/Resume</title>
 </head>
+<style>
+#skills ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 0;
+}
+
+#skills li {
+  padding: 0.8rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  list-style: none;
+}
+
+
+/* Education Highlight */
+#education h3 {
+  color: #3498db;
+  margin: 1rem 0 0.5rem;
+}
+
+#education p {
+  margin: 0.25rem 0;
+}
+
+/* List Enhancements */
+ul {
+  padding-left: 1.25rem;
+}
+
+li {
+  margin: 0.75rem 0;
+  line-height: 1.6;
+  position: relative;
+}
+
+li::before {
+  content: "•";
+  color: #3498db;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+</style>
 <body>
     <header>
         <h2>Tianyang (Kevin) Huang</h2>
