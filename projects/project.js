@@ -11,7 +11,6 @@ let projectsContainer = document.querySelector('.projects');
     const titleElement = document.querySelector('h1');
     if (titleElement) titleElement.innerHTML += `: ${projects.length} Projects`; 
     //
-    renderPieChart(projects);
     update();
     let searchInput = document.querySelector('.searchBar');
     searchInput.addEventListener('change', (event) => {
