@@ -441,3 +441,138 @@ ul.legend li.selected {
   --color: var(--color-selected) !important;
 }
 
+#stats {
+  margin: 2rem 0;
+}
+
+#stats {
+  padding: 1.5rem;
+  background: var(--stats-bg, #f8f9fa);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#stats dl {
+  display: grid;
+  /* fill columns left→right */
+  grid-auto-flow: column;
+  /* two rows: labels on top, values on bottom */
+  grid-template-rows: auto auto;
+  /* vertical gap between DT and DD, horizontal gap between stats */
+  gap: 0.5rem 2rem;
+}
+
+#stats dt {
+  grid-row: 1;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--stats-label, #666);
+  margin-bottom: 0.3rem;
+}
+
+#stats dd {
+  grid-row: 2;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--stats-number, #2c3e50);
+}
+
+/* Dark‐mode overrides */
+html.dark #stats {
+  --stats-bg: #2d2d2d;
+  --stats-label: #a0a0a0;
+  --stats-number: #f8fafb;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25em 1em;
+  margin: 0;
+  padding: 0.5em 1em;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  font-size: 0.9rem;
+  transition: opacity 200ms ease, visibility 200ms ease;
+}
+
+/* hide when [hidden], but allow immediate show if hovered/focused */
+dl.info[hidden]:not(:hover):not(:focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* fixed positioning so it floats above scroll */
+.tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* let mouse pass through except on children */
+  z-index: 1000;
+}
+
+/* circle hover scaling */
+circle {
+  transition: 200ms transform;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+}
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+circle.selected {
+  fill: #ff6b6b;
+}
+#language-breakdown {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: auto auto auto; /* 3 rows: name, count, percent */
+  gap: 0.25rem 1.5rem;                 /* vertical then horizontal gap */
+  text-align: center;
+  margin-top: 1.5rem;
+}
+/* language name */
+#language-breakdown dt {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+#language-breakdown > *:nth-child(3n+1) {
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+/* 2nd item = "{count} lines" */
+#language-breakdown > *:nth-child(3n+2) {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* 3rd item = "(percentage)" */
+#language-breakdown > *:nth-child(3n+3) {
+  font-size: 1.6rem;
+  color: #666;
+}
