@@ -6,10 +6,10 @@
         "description": "This visualization comes from aggregating a dataset containing food products in Target, WholeFoods, and Walmart by filtering out on baby food. It demonstrates that WholeFoods is the best place to buy baby food."
     },
     {
-        "title": "Animi excepturi quidem temporibus?",
-        "year": "2024",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Animi similique eos vitae, ipsa sed magnam inventore fugiat voluptatem? Tempora sunt, illo saepe distinctio id, dolore dignissimos voluptatem corporis maxime eligendi rem, inventore dolorem accusamus voluptatum voluptatibus ea velit."
+        "title": "Boston Bikewatch Visualization",
+        "year": "2025",
+        "image": "../img/dsc106_bikewatch.png",
+        "description": "This project utilizes ds3.js to visualize the bike route throughout the day in Boston filter by time of the day."
     },
     {
         "title": "Pariatur nostrum minus eligendi?",
