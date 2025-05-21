@@ -10,12 +10,25 @@
 </head>
 <body>
     <h1>Meta</h1>
-    <div id="stats"></div>
-    <div id="chart">
-        <h1>Commits by Time of Day</h1> </div>
+    <div id="scrollytelling">
+        <div id="scroll-container">
+            <div id="spacer"></div>
+            <div id="items-container"></div>
+        </div>
+        <div id="chart">
+            <!--<label for="time-slider" class="time-filter-label">
+                <span>Show commits until:</span>
+                <input id="time-slider" type="range" min="0" max="100" value="100"/>
+                <time id="selected-time"></time>
+            </label> -->
+            <div id="stats"></div>
+            <dl class="files" hidden></dl>
+            <h1>Commits by Time of Day</h1>
+        </div>
+    </div>
     <p id="selection-count">No commits selected</p>
     <dl id="language-breakdown" class="stats"></dl>
-    <dl id="commit-tooltip" class="info tooltip" hidden>
+    <dl id="commit-tooltip" class="info tooltip">
         <dt>Commit</dt>
         <dd>
           <a href="" id="commit-link" target="_blank" rel="noopener"></a>

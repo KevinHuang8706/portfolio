@@ -442,14 +442,11 @@ ul.legend li.selected {
 }
 
 #stats {
-  margin: 2rem 0;
-}
-
-#stats {
-  padding: 1.5rem;
+  margin: 0.1rem 0;
+  padding: 0.75rem;
   background: var(--stats-bg, #f8f9fa);
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  /*border-radius: 1px;*/
+  /*box-shadow: 0 2px 6px rgba(0,0,0,0.1);*/
 }
 
 #stats dl {
@@ -459,7 +456,7 @@ ul.legend li.selected {
   /* two rows: labels on top, values on bottom */
   grid-template-rows: auto auto;
   /* vertical gap between DT and DD, horizontal gap between stats */
-  gap: 0.5rem 2rem;
+  gap: 0.25rem 1.5rem;
 }
 
 #stats dt {
@@ -468,12 +465,12 @@ ul.legend li.selected {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--stats-label, #666);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.1rem;
 }
 
 #stats dd {
   grid-row: 2;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
   margin: 0;
   color: var(--stats-number, #2c3e50);
@@ -507,8 +504,20 @@ dl.info[hidden]:not(:hover):not(:focus-within) {
   visibility: hidden;
 }
 
-/* fixed positioning so it floats above scroll */
+#commit-tooltip {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  pointer-events: none;
+  display: none;
+}
+
 .tooltip {
+  font-size: 12px;
   position: fixed;
   top: 0;
   left: 0;
@@ -516,11 +525,23 @@ dl.info[hidden]:not(:hover):not(:focus-within) {
   z-index: 1000;
 }
 
+.tooltip dt {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.tooltip dd {
+  margin-left: 10px;
+}
 /* circle hover scaling */
 circle {
   transition: 200ms transform;
+  pointer-events: all;
   transform-origin: center;
   transform-box: fill-box;
+  @starting-style {
+    r: 0;
+  }
 }
 
 circle:hover {
@@ -575,4 +596,158 @@ circle.selected {
 #language-breakdown > *:nth-child(3n+3) {
   font-size: 1.6rem;
   color: #666;
+}
+
+.time-filter-label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 0.5rem 1rem; /* 0.5rem row-gap, 1rem column-gap */
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+/* Row 1, col 1: the “Show commits until:” text */
+.time-filter-label > span {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Row 1, col 2: the slider */
+.time-filter-label > input[type="range"] {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  max-width: none;
+}
+
+/* Row 2, col 2: the time, right-justified */
+.time-filter-label > time {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  white-space: nowrap;
+}
+
+
+#chart{
+  flex: 1;
+  align-items: baseline;
+  margin-left: auto;
+}
+
+/* 1) Make .files a vertical list, one entry per row */
+.files {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;            /* space between each file‐row */
+  margin: 1rem 0 2rem;
+  padding: 0;
+}
+
+/* 2) Each file‐row is a flex container: filename on left, dots on right */
+.files > div {
+  display: flex;
+  align-items: flex-start; /* top-align the dots to the filename */
+  gap: 1rem;               /* space between name and dots */
+}
+
+/* 3) Style the filename container */
+.files dt {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+.files code {
+  font-family: monospace;
+}
+
+/* 4) Make the dd into a horizontal, wrapping row of dots */
+.files dd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15em;
+  margin: 0;
+  padding: 0;
+}
+
+/* 5) Your dot style remains the same */
+.line {
+  width: 0.5em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  /* background-color set from JS */
+}
+
+:global(body){
+  max-width: min(120ch, 80vw);
+}
+
+#scrollytelling {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+/* feel free to play with this to make your scrolly more seemless with your plot */
+#scroll-container {
+  grid-column: 1;
+  position: relative;
+  width: 95%;
+  height: 350px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  margin-bottom: 50px;
+}
+
+#chart {
+  grid-column: 2;
+}
+
+#spacer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none; /* transparent */
+  pointer-events: none;
+}
+
+#items-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.item {
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #eee;
+  white-space: normal;
+}
+
+/* Add to style.css */
+.item a {
+  pointer-events: none; /* Disable clicking */
+  cursor: default; /* Show default cursor instead of pointer */
+  color: inherit; /* Keep original text color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Add to style.css */
+.item a {
+  pointer-events: none; /* Disable clicking */
+  cursor: default; /* Show default cursor instead of pointer */
+  color: inherit; /* Keep original text color */
+  text-decoration: none; /* Remove underline */
+}
+
+.item:hover a {
+  color: inherit; /* Use the same red as circles */
+  background-color: color-mix(in oklch, var(--color-accent, oklch(70% 10% 250)), canvas 85%);
+  border-bottom: 0.2em solid #ff6b6b; /* Vibrant blue accent */
+  transition: all 0.2s ease-in-out;
 }
