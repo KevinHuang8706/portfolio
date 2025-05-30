@@ -2,7 +2,6 @@
 html {
   color-scheme: light dark;
 }
-
 body {
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
@@ -505,13 +504,13 @@ dl.info[hidden]:not(:hover):not(:focus-within) {
 }
 
 #commit-tooltip {
-  position: absolute;
+  position: fixed;
   background: white;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 10px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-  z-index: 100;
+  z-index: 9999;
   pointer-events: none;
   display: none;
 }
@@ -522,7 +521,7 @@ dl.info[hidden]:not(:hover):not(:focus-within) {
   top: 0;
   left: 0;
   pointer-events: none; /* let mouse pass through except on children */
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .tooltip dt {
@@ -570,31 +569,30 @@ circle.selected {
   grid-template-rows: auto auto auto; /* 3 rows: name, count, percent */
   gap: 0.25rem 1.5rem;                 /* vertical then horizontal gap */
   text-align: center;
-  margin-top: 1.5rem;
 }
 /* language name */
 #language-breakdown dt {
-  font-size: 1rem;
+  font-size: 0.5rem;
   font-weight: 600;
   color: #333;
 }
 
 #language-breakdown > *:nth-child(3n+1) {
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: 0.8rem;
   color: #333;
 }
 
 /* 2nd item = "{count} lines" */
 #language-breakdown > *:nth-child(3n+2) {
-  font-size: 1.6rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #2c3e50;
 }
 
 /* 3rd item = "(percentage)" */
 #language-breakdown > *:nth-child(3n+3) {
-  font-size: 1.6rem;
+  font-size: 0.8rem;
   color: #666;
 }
 
@@ -606,6 +604,7 @@ circle.selected {
   gap: 0.5rem 1rem; /* 0.5rem row-gap, 1rem column-gap */
   width: 100%;
   margin: 1.5rem 0;
+  margin-bottom: 0.3rem;
 }
 
 /* Row 1, col 1: the “Show commits until:” text */
@@ -628,13 +627,6 @@ circle.selected {
   grid-row: 2;
   justify-self: end;
   white-space: nowrap;
-}
-
-
-#chart{
-  flex: 1;
-  align-items: baseline;
-  margin-left: auto;
 }
 
 /* 1) Make .files a vertical list, one entry per row */
@@ -667,14 +659,14 @@ circle.selected {
 .files dd {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.15em;
+  gap: 0.08em;
   margin: 0;
   padding: 0;
 }
 
 /* 5) Your dot style remains the same */
 .line {
-  width: 0.5em;
+  width: 0.25em;
   aspect-ratio: 1;
   border-radius: 50%;
   /* background-color set from JS */
@@ -684,70 +676,82 @@ circle.selected {
   max-width: min(120ch, 80vw);
 }
 
-#scrollytelling {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: subgrid;
+/* 1) Make the two-column layout fill viewport height */
+#scrolly-1 {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 10vh;
 }
 
-/* feel free to play with this to make your scrolly more seemless with your plot */
-#scroll-container {
-  grid-column: 1;
+/* 2) Left panel is the scrolling container */
+#scatter-story {
   position: relative;
-  width: 95%;
-  height: 350px;
-  overflow-y: scroll;
-  border: 1px solid #ccc;
-  margin-bottom: 50px;
+  flex: 0 1 50ch;         /* keep it narrow-ish but allow shrink */
+  overflow-y: auto;       /* scroll just this panel */   /* runway for the last step to stick */
 }
 
+/* 3) Right panel is the sticky chart of exactly viewport height */
 #chart {
-  grid-column: 2;
-}
-
-#spacer {
-  position: absolute;
+  flex: 1 1 0%;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  background: none; /* transparent */
-  pointer-events: none;
+  left:0;
+  bottom: auto;
+  height: 60vh; 
+  gap: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;      /* exactly the height of the viewport */
 }
 
-#items-container {
-  position: absolute;
+/* 4) Make sure your SVG itself scales to its container */
+#chart svg {
+  width: 100%;
+}
+
+/* 5) Your .step styles can stay the same, or tweak margin-bottom: */
+.step {
+  padding: 1rem;
+  margin-bottom: 2vh;     /* gives each step some vertical breathing room */
+  min-height: 3vh;
+  opacity: 0.6;
+  transition: opacity 300ms;
+}
+.step.active {
+  opacity: 1;
+  background: rgba(0,0,0,0.05);
+  border-left: 3px solid steelblue;
+  padding-left: 10px;
+}
+
+/* container flexes two equal halves */
+#scrolly-2 {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding-bottom: 50vh; /* allow final step to stick */
+}
+
+/* both children share the row equally */
+#scrolly-2 > * {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+/* left panel scrolls its content */
+#file-viz {
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
 }
 
-.item {
-  height: auto;
-  padding: 10px;
-  box-sizing: border-box;
-  border-bottom: 2px solid #eee;
-  white-space: normal;
-}
-
-/* Add to style.css */
-.item a {
-  pointer-events: none; /* Disable clicking */
-  cursor: default; /* Show default cursor instead of pointer */
-  color: inherit; /* Keep original text color */
-  text-decoration: none; /* Remove underline */
-}
-
-/* Add to style.css */
-.item a {
-  pointer-events: none; /* Disable clicking */
-  cursor: default; /* Show default cursor instead of pointer */
-  color: inherit; /* Keep original text color */
-  text-decoration: none; /* Remove underline */
-}
-
-.item:hover a {
-  color: inherit; /* Use the same red as circles */
-  background-color: color-mix(in oklch, var(--color-accent, oklch(70% 10% 250)), canvas 85%);
-  border-bottom: 0.2em solid #ff6b6b; /* Vibrant blue accent */
-  transition: all 0.2s ease-in-out;
+/* right panel is the scrolling container */
+#file-story {
+  position: relative;
+  overflow-y: visible;
+  top:0;
 }

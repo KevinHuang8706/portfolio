@@ -10,41 +10,55 @@
 </head>
 <body>
     <h1>Meta</h1>
-    <div id="scrollytelling">
-        <div id="scroll-container">
-            <div id="spacer"></div>
-            <div id="items-container"></div>
+    <p>This contains information of the code of this website.</p>
+    <div id="stats"></div>
+    <div id="scrolly-1">
+        <div id="scatter-story"> 
+            <h1>Evolution Over Time</h1>
         </div>
         <div id="chart">
-            <!--<label for="time-slider" class="time-filter-label">
-                <span>Show commits until:</span>
-                <input id="time-slider" type="range" min="0" max="100" value="100"/>
-                <time id="selected-time"></time>
-            </label> -->
-            <div id="stats"></div>
-            <dl class="files" hidden></dl>
+            <!--
+            <label for="time-slider" class="time-filter-label">
+              <span>Show commits until:</span>
+              <input id="time-slider" type="range" min="0" max="100" value="100"/>
+              <time id="selected-time"></time> -->
+            </label>
+            <!--<dl class="files"></dl>-->
             <h1>Commits by Time of Day</h1>
+            <svg></svg>
+            <p id="selection-count">No commits selected</p>
+            <dl id="language-breakdown" class="stats"></dl>
+            <dl id="commit-tooltip" class="info tooltip">
+                <dt>Commit</dt>
+                <dd>
+                  <a href="" id="commit-link" target="_blank" rel="noopener"></a>
+                </dd>
+              
+                <dt>Date</dt>
+                <dd id="commit-date"></dd>
+              
+                <dt>Time</dt>
+                <dd id="commit-time"></dd>
+              
+                <dt>Author</dt>
+                <dd id="commit-author"></dd>
+              
+                <dt>Lines edited</dt>
+                <dd id="commit-lines"></dd>
+            </dl>
         </div>
     </div>
-    <p id="selection-count">No commits selected</p>
-    <dl id="language-breakdown" class="stats"></dl>
-    <dl id="commit-tooltip" class="info tooltip">
-        <dt>Commit</dt>
-        <dd>
-          <a href="" id="commit-link" target="_blank" rel="noopener"></a>
-        </dd>
+    <div id="scrolly-2">
+        <div id="file-viz">
+          <h1>Files Over Time</h1>
+          <!-- This is where renderFileSizes will populate your <dl class="files"> -->
+          <dl class="files"></dl>
+        </div>
       
-        <dt>Date</dt>
-        <dd id="commit-date"></dd>
+        <div id="file-story">
+          <!-- We'll inject one .step-per-commit here, just like the first story -->
+        </div>
+    </div>
       
-        <dt>Time</dt>
-        <dd id="commit-time"></dd>
-      
-        <dt>Author</dt>
-        <dd id="commit-author"></dd>
-      
-        <dt>Lines edited</dt>
-        <dd id="commit-lines"></dd>
-    </dl>
 </body>
 </html>
